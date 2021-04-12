@@ -2,10 +2,10 @@
   "name": "wbdv-sp21-01-mansukh-pamarath-server-node",
   "version": "1.0.0",
   "description": "Node Server",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "author": "Mansukh Pamarath",
   "license": "ISC",
