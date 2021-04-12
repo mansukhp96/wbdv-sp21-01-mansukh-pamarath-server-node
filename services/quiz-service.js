@@ -1,10 +1,24 @@
-export const findAllQuizzes = (req, res) => {
-    return res.send("Hello World of Node");
+const quizzes = require('./quizzes.json');
+
+const findAllQuizzes = () => {
+    return quizzes;
 };
 
-export const findQuizById = (req, res) => {};
+const findQuizById = (quizId) => {
+    return quizzes.find(q => {
+        return q._id === quizId;
+    })
+};
 
 //TODO: Mongoose A8
-export const createQuiz = (req, res) => {};
-export const updateQuiz = (req, res) => {};
-export const deleteQuiz = (req, res) => {};
+const createQuiz = () => {};
+const updateQuiz = () => {};
+const deleteQuiz = () => {};
+
+module.exports = {
+    createQuiz,
+    findQuizById,
+    findAllQuizzes,
+    updateQuiz,
+    deleteQuiz
+}

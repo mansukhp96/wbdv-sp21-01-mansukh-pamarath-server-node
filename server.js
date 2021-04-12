@@ -1,10 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import quizRoutes from './routes/quiz-routes.js'
+const express = require('express');
+const quizController = require('./controllers/quiz-controller.js');
 const app = express();
-app.use(cors());
 const PORT = 4000;
 
-app.use('/api/quizzes', quizRoutes);
+quizController(app);
 
 app.listen(PORT, () => console.log("Node Server started on port: " + PORT));
