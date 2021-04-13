@@ -14,5 +14,6 @@ app.use(function (req, res, next) {
 const PORT = 4000;
 
 require('./controllers/quiz-controller.js')(app);
+require('./controllers/questions-controller')(app);
 
 app.listen(PORT, () => console.log("Node Server started on port: " + PORT));
