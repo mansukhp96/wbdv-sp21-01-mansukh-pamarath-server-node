@@ -1,13 +1,13 @@
 const quizzes = require('./quizzes.json');
 
+const quizzesModel = require('../../models/quizzes-model');
+
 const findAllQuizzes = () => {
-    return quizzes;
+    return quizzesModel.find();
 };
 
 const findQuizById = (quizId) => {
-    return quizzes.find(q => {
-        return q._id === quizId;
-    })
+    return quizzesModel.findOne({_id : quizId});
 };
 
 //TODO: Mongoose A8
