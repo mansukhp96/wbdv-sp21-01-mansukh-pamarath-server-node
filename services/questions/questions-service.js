@@ -1,5 +1,5 @@
 const questions = require('./questions.json');
-const questionsModel = require('../../models/questions-model');
+const questionsModel = require('../../models/questions/questions-model');
 
 const createQuestion = () => {};
 
@@ -13,7 +13,9 @@ const findQuestionsForQuiz = (qizId) => {
     // return questions.filter(q => {
     //     return q.quizId === qizId;
     // })
-    return questionsModel.find({ quizId : qizId });
+    return questionsModel.find({ quizId : qizId })
+        .populate('questions')
+        .exec();
 };
 
 const findQuestionById = (qId) => {
