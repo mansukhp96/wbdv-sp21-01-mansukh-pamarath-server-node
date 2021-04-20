@@ -3,15 +3,15 @@ const quizAttemptsModel = require('../../models/quiz-attempts/quiz-attempts-mode
 const scoreQuiz = (questions) => {
     let numberOfCorrectQuestions = 0;
     questions.forEach(question => question.answer === question.correct ?
-        numberOfCorrectQuestions++ : numberOfCorrectQuestions)
+        numberOfCorrectQuestions++ : numberOfCorrectQuestions);
 
     return 100 * numberOfCorrectQuestions / questions.length;
 }
 
 const findAttemptsForQuiz = (qzId) =>
-    quizAttemptsModel.find({ quiz : qzId })
-    .populate('quiz', 'title_id')
-        .exec();
+    {
+        return quizAttemptsModel.find({ quiz : qzId })
+    };
 
 const createAttempt = (qid, attempt) =>
     quizAttemptsModel.create({ quiz : qid, answers : attempt, score : scoreQuiz(attempt) });

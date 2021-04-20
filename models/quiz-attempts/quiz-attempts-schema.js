@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const questionsSchema = require('../questions/questions-schema');
+
+const questionSchema = require('../questions/questions-schema');
+
 const quizAttempts = mongoose.Schema({
-    _id : String,
-    score : Number,
-    quiz : { type : String, ref : 'QuizzesModel' },
-    answers : [questionsSchema]
-}, { collection : 'quizAttempts' })
+    score: Number,
+    quiz: {type: String, ref: 'QuizModel'},
+    answers: [questionSchema]
+}, {collection: 'quizAttempts'});
 
 module.exports = quizAttempts;

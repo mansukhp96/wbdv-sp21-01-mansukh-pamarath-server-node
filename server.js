@@ -1,14 +1,13 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/chalkboard',
-    {
-        useNewUrlParser : true,
-        useUnifiedTopology : true,
-        useFindAndModify: false,
-        useCreateIndex: true
-    })
+const bodyParser = require('body-parser');
+const CONNECTION_URL = process.env.REACT_APP_MONGO_SERVER
+mongoose.connect(CONNECTION_URL,
+    {useNewUrlParser: true, useUnifiedTopology: true});
 
+app.use(bodyParser.json());
 //Configure CORS
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
