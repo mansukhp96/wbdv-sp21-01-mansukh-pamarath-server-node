@@ -3,7 +3,7 @@ require('dotenv').config();
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const CONNECTION_URL = process.env.REACT_APP_MONGO_SERVER
+const CONNECTION_URL = 'mongodb+srv://mansukhp96:Tempe$t1996@cluster0.g1fia.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(CONNECTION_URL,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
