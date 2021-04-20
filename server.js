@@ -3,7 +3,7 @@ require('dotenv').config();
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const CONNECTION_URL = 'mongodb+srv://mansukhp96:Tempe$t1996@cluster0.g1fia.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const CONNECTION_URL = process.env.REACT_APP_MONGO_SERVER
 mongoose.connect(CONNECTION_URL,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -18,10 +18,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-const PORT = process.env.PORT;
-
 require('./controllers/quizzes-controller.js')(app);
 require('./controllers/questions-controller')(app);
 require('./controllers/quiz-attempts-controller')(app);
 
-app.listen(PORT || 4000, () => console.log("Node Server started on port: " + PORT));
+app.listen(process.env.PORT || 4000, () => console.log("Node Server started"));
