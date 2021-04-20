@@ -3,7 +3,6 @@ const quizAttemptDao = require('../daos/quiz-attempts-dao');
 module.exports = (app) => {
 
     app.post('/api/quizzes/:qid/attempts', (req, res) => {
-        console.log(req.body);
         return quizAttemptDao.createAttempt(req.params.qid, req.body)
             .then(status => res.send(status))
     });
